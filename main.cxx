@@ -28,6 +28,10 @@ understand what further changes we are doing in the next task*/
   }
 }*/
 
+// Create function to show message to user
+void showMessage(const std::string& message) {
+  std::cout << message << std::endl;
+} 
 
 // Next task : Function to compute the key value
 
@@ -36,6 +40,7 @@ int computeKeyValue(const std::string& input) {
     for (char character : input) {
         sumOfCharacters += character;
     }
+    showMessage("Check sum = " +std::to_string(sumOfCharacters));
     return sumOfCharacters;
 }
 
@@ -70,6 +75,7 @@ int calculateKey(const std::string& programName, char firstCharacter, const std:
     return (sumOfCharacters ^ firstCharacter * 3) << (lengthofstring & 0x1f);
 }
 
+
 int main(int argc, char *argv[]) {
     bool hasthreearguments = (argc == 3);
     if (hasthreearguments) {
@@ -80,12 +86,15 @@ int main(int argc, char *argv[]) {
 
         // Calculate the key based on all inputs
         int key = calculateKey(programName, firstCharacter, secondArgument);
-
+        showMessage("Key Value = " +std::to_string(key));
         if (key == thirdArgument) {
             std::cout << "Correct!" << std::endl;
         } else {
             std::cout << "Wrong!" << std::endl;
         }
+    } else {
+      showMessage("Error. Missing parameters.");
+      showMessage("Use this format ./main arg2 arg3");
     }
 
-    return 0;
+    return 0;}
