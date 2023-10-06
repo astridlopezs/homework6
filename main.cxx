@@ -97,4 +97,4 @@ int main(int argc, char *argv[]) {
       showMessage("Use this format ./main arg2 arg3");
     }
 
-    return 0;}
+    return 0;
